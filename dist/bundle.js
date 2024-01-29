@@ -5,6 +5,8 @@ var __webpack_exports__ = {};
 
 
 window.addEventListener('DOMContentLoaded', function () {
+    // mobile menu
+
     let buregerBtn = document.querySelector('.burger__menu'),
         mobileMenu = document.querySelector('.header__nav');
 
@@ -13,12 +15,16 @@ window.addEventListener('DOMContentLoaded', function () {
         buregerBtn.classList.toggle('_active');
     })
 
+    // Функция активации элементов с классом ".price-item" с постепенным добавлением класса "active".
+
     let priceItems = document.querySelectorAll(".price-item");
     priceItems.forEach(function (item, index) {
         setTimeout(function () {
             item.classList.add("active");
         }, index * 500);
     });
+
+    // Функционал конвертирования цен
 
     let currencyIcons = document.querySelectorAll('.currency');
     let amountElements = document.querySelectorAll('.amount');
@@ -85,6 +91,8 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     updateCurrencyIcons();
+
+    // Логика перевода цен день/месяц
 
     let periodElements = document.querySelectorAll('.period');
     let isDayMode = false;
