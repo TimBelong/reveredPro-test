@@ -1,341 +1,496 @@
 @use 'fonts'
 
-$size: 100px // Размер квадратов
+$size: 100px
 $main-accent: #BC4749
 
 *
     padding: 0
     margin: 0
+
+html, body 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
     
-html
-
-
 body
     width: 100%
     height: 100%
-    position: relative
-    background: rgb(54,96,62)
     background: linear-gradient(180deg, rgba(54,96,62,1) 60%, rgba(30,38,44,1) 100%)
-    border-radius: 12px
     overflow-x: hidden
-    box-sizing: border-box
 
-    header
-        width: 100%
-        .container
-            padding: 34.55px 48.37px 46.5px 48.37px
-            .wrapper
-                width: 100%
-                height: 100%
-                display: flex
-                justify-content: space-between
+header
+    width: 100%
+    background-color: rgba(54,96,62,1)
+    position: fixed
+    top:0
+    left: 0
+    z-index: 4
+    height: 70px
+    .container
+        padding: 34.55px 48.37px
+        .wrapper
+            width: 100%
+            height: 100%
+            display: flex
+            justify-content: space-between
 
-                .header__links
-                    display: flex
-                    align-items: center
-                    gap: 5rem
-                    a
-                        display: flex
-                        gap: 30px
-                        text-decoration: none
-                        .header__logo-text
-                            color: white
-                            font-size: 16.45px
-                            font-family: Inter
-                            font-weight: 700
-                            text-decoration: line-through
-                            line-height: 14.65px
-                            word-wrap: break-word
-                    .header__logo
-                        position: relative
-
-                        $square-size: 5.54px
-
-                        .colored-square
-                            width: $square-size
-                            height: $square-size
-                            position: absolute
-                            transform: rotate(45deg)
-                            transform-origin: 0 0
-
-                        .square1
-                            left: 15.4px
-                            top: 7.79px
-                            background: $main-accent
-
-                        .square2
-                            left: 7.82px
-                            top: 7.83px
-                            background: #161616
-
-                        .square3
-                            left: 11.75px
-                            top: 3.92px
-                            background: $main-accent
-
-                        .square4
-                            left: 4.2px
-                            top: 3.77px
-                            background: $main-accent
-
-                        .square5
-                            left: 15.66px
-                            top: 0px
-                            background: white
-
-                        .square6
-                            left: 7.83px
-                            top: 0px
-                            background: $main-accent
-
-                        .square7
-                            left: 19.54px
-                            top: 3.91px
-                            background: $main-accent
-
-                        .square8
-                            left: 11.75px
-                            top: 3.91px
-                            background: $main-accent
-                .header__nav
-                    display: flex
-                    justify-content: flex-start
-                    gap: 3rem
-                    li
-                        list-style-type: none
-                        position: relative
-                        a
-                            color: rgba(255, 255, 255, 0.80)
-                            opacity: 0.7
-                            font-size: 16.09px
-                            font-family: Inter
-                            font-weight: light
-                            line-height: 15.48px
-                            word-wrap: break-word
-                        a.active
-                            opacity: 1
-                        ::after 
-                            transition: width .3s
-                            width: 0
-                            content: ""
-                            height: 4px
-                            background-color: $main-accent
-                            border-radius: 6px
-                            position: absolute
-                            bottom: -10px
-                            left: 0
-                            right: 0
-                            margin: 0 auto
-                    li:hover a::after 
-                        width: 100%
-            .header__btns
+            .header__links
                 display: flex
                 align-items: center
-                gap: 14px
-                .btn
+                gap: 5rem
+                a
+                    display: flex
+                    gap: 30px
                     text-decoration: none
-                    color: rgba(255, 255, 255, 0.80)
-                    font-size: 16px
-                    font-family: Inter
-                    font-weight: light
-                    line-height: 15.48px
-                    word-wrap: break-word
-                .btn.active
+                    .header__logo-text
+                        color: white
+                        font-size: 16.45px
+                        font-family: Inter
+                        font-weight: 700
+                        text-decoration: line-through
+                        line-height: 14.65px
+                        word-wrap: break-word
+                .header__logo
+                    position: relative
+
+                    $square-size: 5.54px
+
+                    .colored-square
+                        width: $square-size
+                        height: $square-size
+                        position: absolute
+                        transform: rotate(45deg)
+                        transform-origin: 0 0
+
+                    .square1
+                        left: 15.4px
+                        top: 7.79px
+                        background: $main-accent
+
+                    .square2
+                        left: 7.82px
+                        top: 7.83px
+                        background: #161616
+
+                    .square3
+                        left: 11.75px
+                        top: 3.92px
+                        background: $main-accent
+
+                    .square4
+                        left: 4.2px
+                        top: 3.77px
+                        background: $main-accent
+
+                    .square5
+                        left: 15.66px
+                        top: 0px
+                        background: white
+
+                    .square6
+                        left: 7.83px
+                        top: 0px
+                        background: $main-accent
+
+                    .square7
+                        left: 19.54px
+                        top: 3.91px
+                        background: $main-accent
+
+                    .square8
+                        left: 11.75px
+                        top: 3.91px
+                        background: $main-accent
+            .header__nav
+                display: flex
+                justify-content: flex-start
+                gap: 3rem
+                li
+                    list-style-type: none
+                    position: relative
+                    a
+                        color: rgba(255, 255, 255, 0.80)
+                        opacity: 0.7
+                        font-size: 16.09px
+                        font-family: Inter
+                        font-weight: light
+                        line-height: 15.48px
+                        word-wrap: break-word
+                    a.active
+                        opacity: 1
+                    ::after 
+                        transition: width .3s
+                        width: 0
+                        content: ""
+                        height: 4px
+                        background-color: $main-accent
+                        border-radius: 6px
+                        position: absolute
+                        bottom: -10px
+                        left: 0
+                        right: 0
+                        margin: 0 auto
+                li:hover a::after 
                     width: 100%
-                    height: 100%
-                    padding-left: 13.82px
-                    padding-right: 13.82px
-                    padding-top: 5px
-                    padding-bottom: 5px
-                    background: $main-accent
-                    border-radius: 7px
-                    border: 0.86px #D66567 solid
-                    justify-content: center
-                    align-items: center
-                    gap: 9px
-                    display: inline-flex
-                .btn:hover
-                    color: $main-accent
-                .btn.active:hover
-                    background-color: #fff
-                    color: $main-accent
-    .price-section
-        position: relative
+
+        .burger__menu
+            display: none
+
+        .header__btns
+            display: flex
+            align-items: center
+            gap: 14px
+            .btn
+                text-decoration: none
+                color: rgba(255, 255, 255, 0.80)
+                font-size: 16px
+                font-family: Inter
+                font-weight: light
+                line-height: 15.48px
+                word-wrap: break-word
+            .btn.active
+                width: 100%
+                height: 100%
+                padding: 8px 13.82px
+                background: $main-accent
+                border-radius: 7px
+                border: 0.86px #D66567 solid
+                justify-content: center
+                align-items: center
+                gap: 9px
+                display: inline-flex
+            .btn:hover
+                color: $main-accent
+            .btn.active:hover
+                background-color: #fff
+                color: $main-accent
+.price-section
+    position: relative
+    width: 100%
+    margin-top: 100px
+    margin-bottom: 60px
+    overflow: hidden
+    height: auto
+    h1
+        color: #fff
+        font-size: 41.45px
+        font-family: Inter
+        font-weight: 600
+        word-wrap: break-word   
+        text-align: center
+    &__line
+        position: absolute
         width: 100%
-        margin-bottom: 60px
-        h1
+    &__line1
+        top:0px
+        right:37%
+    &__line2
+        top:0px
+        left:37%
+    &__line3
+        top:32px
+        right:-2px
+    .price-section_wrapper
+        display: flex
+        justify-content: center
+        align-items: stretch
+        gap: 280px
+        margin-top: 70px
+        position: relative
+        .price-item
+            flex: 0 1 auto
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            padding: 37.85px 60px 52.99px 60px
+            background: #6A994E
+            border-radius: 11.35px
+            position: relative
+            opacity: 0
+            transform: translateY(20px)
+            transition: opacity 0.5s ease, transform 0.5s ease
+        .price-item.active
+            opacity: 1
+            transform: translateY(0)
+        .price-item.main
+            position: absolute
+            top: -5%
+            z-index: 2
+            background: #1D252B
+        .price-item__content
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            gap: 50px
+        .price-item__header
+            width: 100%
+            max-width: 220px
+            display: flex
+            flex-direction: column
+            gap: 15px
+        h2
             color: #fff
-            font-size: 41.45px
+            font-size: 16px
             font-family: Inter
             font-weight: 600
-            word-wrap: break-word   
-            text-align: center
-        &__line
+            word-wrap: break-word
+        .cost
+            font-family: Inter
+            position: relative
+            border-bottom: 0.95px rgba(255, 255, 255, 0.20) solid
+            padding-bottom: 15px
+            span
+                color: #fff
+            .currency
+                font-size: 11.35px
+                font-weight: 500
+                line-height: 14.54px
+                word-wrap: break-word
+                position: absolute
+                cursor: pointer
+            .amount
+                font-size: 37.85px
+                font-weight: 800
+                line-height: 48.45px
+                word-wrap: break-word
+                margin-left: 10px
+            .period
+                color: rgba(255, 255, 255, 0.70)
+                font-size: 12px
+                font-weight: 400
+                word-wrap: break-word
+                cursor: pointer
+        .price-item__descr
+            color: rgba(255, 255, 255, 0.80)
+            font-size: 12px
+            font-family: Inter
+            font-weight: 400
+            line-height: 16.80px
+            word-wrap: break-word
+        .divider
             position: absolute
             width: 100%
-        &__line1
-            top:0px
-            right:37%
-        &__line2
-            top:0px
-            left:37%
-        &__line3
-            top:32px
-            right:-2px
-        .price-section_wrapper
-            display: flex
-            justify-content: center
-            align-items: stretch
-            gap: 280px
-            margin-top: 70px
-            position: relative
-            .price-item
-                flex: 0 1 auto
-                display: flex
-                flex-direction: column
-                justify-content: space-between
-                padding: 37.85px 60px 52.99px 60px
-                background: #6A994E
-                box-shadow: 0px 3.784829616546631px 94.62073516845703px rgba(0, 0, 0, 0.25)
-                border-radius: 11.35px
-                position: relative
-            .price-item.main
-                position: absolute
-                top: -5%
-                z-index: 2
-                background: #1D252B
-                box-shadow: 0px 3.784829616546631px 94.62073516845703px rgba(0, 0, 0, 0.15)
-            .price-item__content
-                display: flex
-                flex-direction: column
-                justify-content: space-between
-                gap: 50px
-            .price-item__header
-                width: 100%
-                max-width: 220px
+            height: 1px
+            left: 0
+            top: 210px
+            background-color: rgba(255, 255, 255, 0.10)
+        .features
+            color: white
+            font-family: Inter
+            word-wrap: break-word 
+            &__title
+                margin-bottom: 10px 
+            &__name
+                font-size: 13.25px
+                font-weight: 500
+                line-height: 16.96px
+                margin-bottom: 24px
+            &__list
                 display: flex
                 flex-direction: column
                 gap: 15px
-            h2
-                color: #fff
-                font-size: 16px
-                font-family: Inter
-                font-weight: 600
-                word-wrap: break-word
-            .cost
-                font-family: Inter
-                position: relative
-                border-bottom: 0.95px rgba(255, 255, 255, 0.20) solid
-                padding-bottom: 15px
-                p
-                    color: rgba(255, 255, 255, 0.70)
-                    font-size: 12px
-                    font-weight: 400
-                    word-wrap: break-word
-                span
-                    color: #fff
-                .currency
-                    font-size: 11.35px
-                    font-weight: 500
-                    line-height: 14.54px
-                    word-wrap: break-word
-                    position: absolute
-                .amount
-                    font-size: 37.85px
-                    font-weight: 800
-                    line-height: 48.45px
-                    word-wrap: break-word
-                    margin-left: 10px
-            .price-item__descr
-                color: rgba(255, 255, 255, 0.80)
+            &__item
+                list-style-type: none
                 font-size: 12px
-                font-family: Inter
-                font-weight: 400
-                line-height: 16.80px
-                word-wrap: break-word
-            .divider
-                position: absolute
-                width: 100%
-                height: 1px
-                left: 0
-                top: 210px
-                background-color: rgba(255, 255, 255, 0.10)
-            .features
-                color: white
-                font-family: Inter
-                word-wrap: break-word 
-                &__title
-                    margin-bottom: 10px 
-                &__name
-                    font-size: 13.25px
-                    font-weight: 500
-                    line-height: 16.96px
-                    margin-bottom: 24px
-                &__list
-                    display: flex
-                    flex-direction: column
-                    gap: 15px
-                &__item
-                    list-style-type: none
-                    font-size: 12px
-                    font-weight: 500
-                    line-height: 15.36px
-            .price-item__cta
-                margin: 0 auto
+                font-weight: 500
+                line-height: 15.36px
+        .price-item__cta
+            margin: 0 auto
+            position: relative
+        .btn
+            padding: 12px 52px
+            background: #6A994E
+            box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.10)
+            border-radius: 7px
+            border: 0.86px #D0D0D0 solid
+            text-decoration: none
+            text-align: center
+            color: #fff
+            font-family: Inter
+            overflow: hidden
+            position: relative
+            margin-top: 20px
+            span
+                padding: 3.30px 6.3px
+                background: rgba(255, 255, 255, 0.60)
+                border-radius: 65.97px
+                justify-content: center
+                align-items: center
+                gap: 6.60px
+                display: inline-flex
+                .arrow
+                        border: solid $main-accent
+                        border-width: 0 1px 1px 0
+                        display: inline-block
+                        padding: 2px
+                        transform: rotate(-45deg)
+                        -webkit-transform: rotate(-45deg)
+                        margin-right: 2px
+        .btn::after
+            content: ""
+            position: absolute
+            height: 100%
+            width: 20%
+            background-color: hsla(0, 0%, 100%, .2)
+            left: -25%
+            top: 0
+            transform: skewX(-20deg)
+            opacity: 0.1
+            transition: all .5s
+        .btn:hover::after
+            left: 100%
+            opacity: 1
+        .btn_active
+            margin-top: 45px
+            background-color: #BC4749   
+            border: 0.86px #D66567 solid
+            display: flex
+            justify-content: center
+            gap: 10px
+
+@media (min-width: 1400px)
+    .price-section__line1
+        top:0px
+        right:35%
+    .price-section__line2
+        top:0px
+        left:35%
+    .price-section__line3
+        top:40px
+        right:-2px
+
+@media (min-width: 1600px)
+    .price-section__line1
+        top:0px
+        right:26%
+    .price-section__line2
+        top:0px
+        left:26%
+    .price-section__line3
+        top:40px
+        right:-2px         
+
+@media (max-width: 1200px)
+    .price-section
+        margin-top: 120px
+        
+    .price-section__line1
+        right: 50%
+        top: 0px
+    .price-section__line2
+        left: 50%
+        top: 0px
+    .price-section__line3
+        top: 10px
+        right: 15px
+
+
+@media (max-width: 900px)
+    header 
+        border-bottom: 1px rgba(255, 255, 255, 0.10) solid
+        .container
+            padding: 20px
+
+    header
+        .container
+            .wrapper
+                .header__nav
+                    position: fixed
+                    background-color: rgba(54,96,62,1)
+                    top: -200%
+                    left: 0%
+                    width: 95%
+                    padding: 40px
+                    border-bottom: 1px rgba(255, 255, 255, 0.10) solid
+                    border-top: 1px rgba(255, 255, 255, 0.10) solid
+                    border-radius: 0px 0px 35px 35px
+                    transition: all .5s
+                    z-index: 5
+                    flex-wrap: wrap
+                .header__nav._active
+                    top: 67px
+                        
+    .burger__menu
+        z-index: 999
+        display: block !important
+        position: relative
+        width: 30px
+        height: 20px
+        cursor: pointer
+
+    .burger__menu span, .burger__menu::before, .burger__menu::after
+        left: 0
+        position: absolute
+        height: 15%
+        width: 100%
+        transition: all .5s ease 0s
+        background-color: #fff
+        border-radius: 30px
+
+    .burger__menu::before, .burger__menu::after
+        content: ""
+
+    .burger__menu::before 
+        top: 0
+    
+    .burger__menu::after
+        bottom:0
+
+    .burger__menu span 
+        top: 50%
+        transform: scale(1) translate(0px, -50%)
+
+    .burger__menu._active span 
+        transform: scale(0) translate(0px, -50%)
+
+    .burger__menu._active::before
+        top: 50%
+        transform: rotate(45deg) translate(0px, -50%)
+
+    .burger__menu._active::after
+        bottom: 50%
+        transform: rotate(-45deg) translate(0px, 50%)
+    
+    .price-section
+        .price-section_wrapper
+            gap: 250px
+            .price-item
+                padding: 40px 30px 50px 30px
+                .btn
+                    padding: 12px 30px
+    .price-section__line1
+        right: 65%
+        top: 0px
+    .price-section__line2
+        left: 65%
+        top: 0px
+
+@media (max-width: 600px)
+    
+    .price-item 
+        flex: 0 0 auto
+        width: 80% /* Занимает 100% ширины контейнера */
+        scroll-snap-align: start
+    .price-section 
+        .price-section_wrapper 
+            margin-top: 40px
+            flex-wrap: wrap
+            gap: 20px
+            .price-item.main 
                 position: relative
-            .btn
-                padding: 12px 52px
-                background: #6A994E
-                box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.10)
-                border-radius: 7px
-                border: 0.86px #D0D0D0 solid
-                text-decoration: none
-                text-align: center
-                color: #fff
-                font-family: Inter
-                overflow: hidden
-                position: relative
-                margin-top: 20px
-                span
-                    padding: 3.30px 6.3px
-                    background: rgba(255, 255, 255, 0.60)
-                    border-radius: 65.97px
-                    justify-content: center
-                    align-items: center
-                    gap: 6.60px
-                    display: inline-flex
-                    .arrow
-                            border: solid $main-accent
-                            border-width: 0 1px 1px 0
-                            display: inline-block
-                            padding: 2px
-                            transform: rotate(-45deg)
-                            -webkit-transform: rotate(-45deg)
-                            margin-right: 2px
-            .btn::after
-                content: ""
-                position: absolute
-                height: 100%
-                width: 20%
-                background-color: hsla(0, 0%, 100%, .2)
-                left: -25%
-                top: 0
-                transform: skewX(-20deg)
-                opacity: 0.1
-                transition: all .5s
-            .btn:hover::after
-                left: 100%
-                opacity: 1
-            .btn_active
-                margin-top: 45px
-                background-color: #BC4749   
-                border: 0.86px #D66567 solid
-                display: flex
-                gap: 10px
 
-
-
-
+@media (max-width: 400px)
+    header
+        .container
+            padding: 20px 10px
+            .wrapper
+                .header__nav
+                    padding: 20px
+                    gap: 30px
+                .header__btns 
+                    .btn
+                        font-size: 12px
            
 
     

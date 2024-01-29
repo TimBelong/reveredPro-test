@@ -26,6 +26,7 @@
     "webpack-plugin": "^1.0.5"
   },
   "dependencies": {
-    "inter-ui": "^4.0.1"
+    "inter-ui": "^4.0.1",
+    "swiper": "^11.0.5"
   }
 }
