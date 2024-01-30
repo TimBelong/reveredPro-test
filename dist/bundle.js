@@ -50,17 +50,22 @@ window.addEventListener('DOMContentLoaded', function () {
         currencyIcon.addEventListener('click', function () {
             if (currency === 'dollar') {
                 currency = 'ruble';
-                updateAmounts(89.82, 0);
+                if (isDayMode)
+                    updateAmounts(89.82, 2);
+                else
+                    updateAmounts(89.82, 0);
             } else if (currency === 'ruble') {
                 currency = 'euro';
-                updateAmounts(1 / 96.56, 0);
+                if (isDayMode)
+                    updateAmounts(1 / 96.56, 2);
+                else
+                    updateAmounts(1 / 96.56, 0);
             } else if (currency === 'euro') {
                 currency = 'dollar';
-                if (isDayMode) {
-                    updateAmounts(0, 0, true, originalAmountsDividedBy30);
-                } else {
+                if (isDayMode)
+                    updateAmounts(0, 2, true, originalAmountsDividedBy30);
+                 else
                     updateAmounts(0, 0, true);
-                }
             }
 
             updateCurrencyIcons();
@@ -108,7 +113,7 @@ window.addEventListener('DOMContentLoaded', function () {
         periodElement.addEventListener('click', function () {
             if (isDayMode) {
                 periodElements.forEach(function (element) {
-                    element.textContent = 'Month';
+                    element.textContent = '/Month';
                 });
 
                 amountElements.forEach(function (amountElement) {
