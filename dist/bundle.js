@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 amountElements.forEach(function (amountElement) {
                     let currentAmount = parseFloat(amountElement.textContent.replace(',', '.'));
                     if (!isNaN(currentAmount)) {
-                        amountElement.textContent = (currentAmount / 30).toFixed(0);
+                        amountElement.textContent = (currentAmount / 30).toFixed(2);
                     }
                 });
             }

@@ -25,7 +25,7 @@ header
     position: fixed
     top:0
     left: 0
-    z-index: 4
+    z-index: 999
     height: 70px
     .container
         padding: 34.55px 48.37px
@@ -34,7 +34,6 @@ header
             height: 100%
             display: flex
             justify-content: space-between
-
             .header__links
                 display: flex
                 align-items: center
@@ -53,6 +52,7 @@ header
                         word-wrap: break-word
                 .header__logo
                     position: relative
+                    z-index: 999
 
                     $square-size: 5.54px
 
@@ -60,8 +60,13 @@ header
                         width: $square-size
                         height: $square-size
                         position: absolute
-                        transform: rotate(45deg)
-                        transform-origin: 0 0
+                        -webkit-transform: rotate(45deg)
+                        -webkit-transform-origin: 0 0
+                        -ms-transform: rotate(45deg)
+                        -ms-transform-origin: 0 0
+                        -moz-transform: rotate(45deg)
+                        -moz-transform-origin: 0 0
+                        
 
                     .square1
                         left: 15.4px
@@ -149,6 +154,7 @@ header
                 font-weight: light
                 line-height: 15.48px
                 word-wrap: break-word
+                z-index: 999
             .btn.active
                 width: 100%
                 height: 100%
@@ -210,8 +216,18 @@ header
             opacity: 0
             transform: translateY(20px)
             transition: opacity 0.5s ease, transform 0.5s ease
+            -webkit-transition: opacity 0.5s ease, transform 0.5s ease
+            -moz-transition: opacity 0.5s ease, transform 0.5s ease
+            -ms-transition: opacity 0.5s ease, transform 0.5s ease
+            -o-transition: opacity 0.5s ease, transform 0.5s ease
+            transition: opacity 0.5s ease, transform 0.5s ease
         .price-item.active
             opacity: 1
+            transform: translateY(0)
+            -webkit-transform: translateY(0)
+            -moz-transform: translateY(0)
+            -ms-transform: translateY(0)
+            -o-transform: translateY(0)
             transform: translateY(0)
         .price-item.main
             position: absolute
@@ -324,8 +340,10 @@ header
                         border-width: 0 1px 1px 0
                         display: inline-block
                         padding: 2px
-                        transform: rotate(-45deg)
                         -webkit-transform: rotate(-45deg)
+                        -moz-transform: rotate(-45deg)
+                        -ms-transform: rotate(-45deg)
+                        -o-transform: rotate(-45deg)
                         margin-right: 2px
         .btn::after
             content: ""
@@ -336,6 +354,10 @@ header
             left: -25%
             top: 0
             transform: skewX(-20deg)
+            -webkit-transform: skewX(-20deg)
+            -moz-transform: skewX(-20deg)
+            -ms-transform: skewX(-20deg)
+            -o-transform: skewX(-20deg)
             opacity: 0.1
             transition: all .5s
         .btn:hover::after
@@ -397,19 +419,17 @@ header
             .wrapper
                 .header__nav
                     position: fixed
-                    background-color: rgba(54,96,62,1)
-                    top: -200%
-                    left: 0%
-                    width: 95%
-                    padding: 40px
-                    border-bottom: 1px rgba(255, 255, 255, 0.10) solid
-                    border-top: 1px rgba(255, 255, 255, 0.10) solid
-                    border-radius: 0px 0px 35px 35px
+                    flex-direction: column
+                    top: 71px
+                    right: -100%
+                    height: 100%
+                    width: 50%
+                    padding: 20px
+                    background: linear-gradient(180deg, rgba(54,96,62,1) 60%, rgba(30,38,44,1) 100%)
                     transition: all .5s
                     z-index: 5
-                    flex-wrap: wrap
                 .header__nav._active
-                    top: 67px
+                    right: 0
                         
     .burger__menu
         z-index: 999
@@ -440,17 +460,35 @@ header
     .burger__menu span 
         top: 50%
         transform: scale(1) translate(0px, -50%)
+        -webkit-transform: scale(1) translate(0px, -50%)
+        -moz-transform: scale(1) translate(0px, -50%)
+        -ms-transform: scale(1) translate(0px, -50%)
+        -o-transform: scale(1) translate(0px, -50%)
 
     .burger__menu._active span 
         transform: scale(0) translate(0px, -50%)
+        -webkit-transform: scale(0) translate(0px, -50%)
+        -moz-transform: scale(0) translate(0px, -50%)
+        -ms-transform: scale(0) translate(0px, -50%)
+        -o-transform: scale(0) translate(0px, -50%)
+          
+
 
     .burger__menu._active::before
         top: 50%
         transform: rotate(45deg) translate(0px, -50%)
+        -webkit-transform: rotate(45deg) translate(0px, -50%)
+        -moz-transform: rotate(45deg) translate(0px, -50%)
+        -ms-transform: rotate(45deg) translate(0px, -50%)
+        -o-transform: rotate(45deg) translate(0px, -50%)
 
     .burger__menu._active::after
         bottom: 50%
         transform: rotate(-45deg) translate(0px, 50%)
+        -webkit-transform: rotate(-45deg) translate(0px, 50%)
+        -moz-transform: rotate(-45deg) translate(0px, 50%)
+        -ms-transform: rotate(-45deg) translate(0px, 50%)
+        -o-transform: rotate(-45deg) translate(0px, 50%)
     
     .price-section
         .price-section_wrapper
@@ -467,7 +505,6 @@ header
         top: 0px
 
 @media (max-width: 600px)
-    
     .price-item 
         flex: 0 0 auto
         width: 80% /* Занимает 100% ширины контейнера */
@@ -494,4 +531,3 @@ header
            
 
     
-
