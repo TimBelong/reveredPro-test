@@ -371,6 +371,21 @@ header
             justify-content: center
             gap: 10px
 
+.menu-open 
+    overflow: hidden
+
+.menu-open::before 
+    content: ""
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.5) 
+    z-index: 999
+    backdrop-filter: blur(5px)
+
+
 @media (min-width: 1400px)
     .price-section__line1
         top:0px
@@ -520,11 +535,7 @@ header
 @media (max-width: 400px)
     header
         .container
-            padding: 20px 10px
             .wrapper
-                .header__nav
-                    padding: 20px
-                    gap: 30px
                 .header__btns 
                     .btn
                         font-size: 12px

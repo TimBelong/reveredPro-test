@@ -4,13 +4,20 @@ import './styles/style.sass'
 window.addEventListener('DOMContentLoaded', function () {
     // mobile menu
 
-    let buregerBtn = document.querySelector('.burger__menu'),
-        mobileMenu = document.querySelector('.header__nav');
+    let burgerBtn = document.querySelector('.burger__menu'),
+        mobileMenu = document.querySelector('.header__nav'),
+        body = document.body;
 
-    buregerBtn.addEventListener('click', () => {
+    burgerBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('_active');
-        buregerBtn.classList.toggle('_active');
-    })
+        burgerBtn.classList.toggle('_active');
+
+        if (mobileMenu.classList.contains('_active')) {
+            body.classList.add('menu-open');
+        } else {
+            body.classList.remove('menu-open');
+        }
+    });
 
     // Функция активации элементов с классом ".price-item" с постепенным добавлением класса "active".
 
